@@ -1,20 +1,21 @@
 const express = require('express');
+//const productosRoutes = require('./routes/productosRoutes');
+
+
 const mysql = require('mysql');
 const app = express();
+app.use(express.json());
+
+const mysqlConnection = require('./db/database.js');
+
+// Routes
+app.use(require('./routes/productosRoutes.js'));
+
 
 // Settings
 app.set('port', process.env.PORT || 3000);
 
-// Middlewares
-//app.use(express.json());
-
-// Routes
-app.use(express.json());
-app.use(require('./routes/productosRoutes.js'));
-
-
-// Starting the server
-
-app.listen(app.get('port'), () => {
-    console.log('Server on port: ', app.get('port'));
-});
+const port = 3000;
+app.listen(port, () => {
+    console.log(`App running on port ${port}...`)
+})
