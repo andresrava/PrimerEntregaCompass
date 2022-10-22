@@ -29,3 +29,9 @@ It can be mannaged by editing /db/database.js file.
 //To ejecute server locally use
 node app.js
 ```
+## Endpoints
+| Method | Endpoint             |  Description                                                  |
+| ------ | ---------------      | ------------------------------------------------------------- |
+| GET    |/api/v1/productos     | Get all products                                              |
+| GET    |/api/v1/productos/:id | Find a product by id                                          |
+| POST   |/api/v1/productos/:id | Registre a new product                                        |
