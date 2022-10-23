@@ -1,6 +1,6 @@
 const express = require('express');
-
-const router = express.Router();
+const app = express();
+app.use(express.json())
 
 const mysqlConnection = require('../db/database');
 
@@ -44,14 +44,16 @@ const createProduct = (req, res) => {
     `;
     mysqlConnection.query(query, [name, price, description], (err, rows, fields) => {
         if(!err) {
-            res.json({Status: 'Producto cargado'});
+            res.status(201).json({Status: 'Producto cargado'});
         } else {
             console.log(err);
         }
     })
 }
 
-router.get('/api/v1/productos', getAllProducts);
-router.get('/api/v1/productos/:id', getProductById);
-router.post('/api/v1/productos', createProduct);
-module.exports = router;
+app.get('/api/v1/productos', getAllProducts);
+app.get('/api/v1/productos/:id', getProductById);
+app.post('/api/v1/productos', createProduct);
+module.exports = app;
+
+
