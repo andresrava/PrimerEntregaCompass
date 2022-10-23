@@ -34,4 +34,4 @@ node app.js
 | ------ | ---------------      | ------------------------------------------------------------- |
 | GET    |/api/v1/productos     | Get all products                                              |
 | GET    |/api/v1/productos/:id | Find a product by id                                          |
-| POST   |/api/v1/productos/:id | Registre a new product                                        |
+| POST   |/api/v1/productos/    | Registre a new product                                        |
